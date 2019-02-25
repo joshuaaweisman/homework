@@ -1,12 +1,25 @@
 <html>
+    <!-- meta elements --------------------------------------------------------- -->
     <head>
-    <title>Josh Weisman Recipe</title>
+        <title>Josh Weisman Recipe</title>
+
+        <meta charset="UTF-8" name="description" content="Salmon cooking recipes for chefs">
+
+        <script type="text/javascript" src="./javascript.js"></script>
+
+        <link rel="stylesheet" href="./stylesheet.css">
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date(a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+          
+            ga('create', 'UA-12345678-9', 'auto');
+            ga('send', 'pageview');   
+        </script>
     </head>
     
     <body>
-    <!-- ----------------------------------------------------------------------------
-    header
-    ----------------------------------------------------------------------------- -->
+   
+    <!-- header ---------------------------------------------------------------- -->
         <header>
             <img src="logo_app_academy.jpg" height="20" border="1"></img>
 
@@ -21,9 +34,7 @@
 
 
         
-    <!-- ----------------------------------------------------------------------------
-    section 1: salmon
-    ----------------------------------------------------------------------------- -->
+    <!-- section 1: salmon ----------------------------------------------------- -->
         <section>
             <a id="top-of-page"></a>
             <h1>Salmon</h1>
@@ -62,13 +73,11 @@
 
 
 
-    <!-- ----------------------------------------------------------------------------
-    section 2: user feedback
-    ----------------------------------------------------------------------------- -->
-        <section>
+    <!-- section 2: user feedback ---------------------------------------------- -->
+        <section id="reviews">
             <h2 id="description">What Do You Think?</h2>
 
-            <form>
+            <form id="review-form" action="/reviews" method="post">
                 <label for="name"><b>Your Name:</b></label>
                 <input type="text" id="name" name="name">
 
@@ -92,21 +101,20 @@
                     <option value="I'm a professional chef">I'm a professional chef</option>
                 </select>
 
-                <br><br>
+                <br>
 
-                <label for="review"><b>Your Review</b>
+                <label for="review"><b>Your Review:</b>
                     <br>
                     <textarea rows="10" cols="50">Let us know what you think of this recipe.</textarea>
                 </label>
+                <br>
                 <input type="submit" name="review" id="review" value="Submit your review">
             </form>
         </section>
 
 
 
-    <!-- ----------------------------------------------------------------------------
-    footer
-    ----------------------------------------------------------------------------- -->         
+    <!-- footer ----------------------------------------------------------------- -->        
         <footer>
             <p>
                 This recipe came from a piece of salmon I cooked once.

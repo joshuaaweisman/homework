@@ -1,4 +1,5 @@
 class PolyTreeNode
+    require "byebug"
     attr_accessor :value
     attr_reader :parent, :children
   
@@ -8,6 +9,7 @@ class PolyTreeNode
       @parent = nil
       @children = []
     end
+
 
 
     def parent=(parent_node)
@@ -26,13 +28,47 @@ class PolyTreeNode
     end
 
 
+
     def add_child(child_node)
         child_node.parent=(self)
     end
 
 
+
     def remove_child(child_node)
         raise "That node's not a child" if !@children.include?(child_node)
         child_node.parent=(nil)
+    end
+
+
+
+    def inspect
+        { 'value' => @value, 'parent' => @parent.value, 'children' => @children.map {|child| child.value} }
+    end
+
+
+
+    def dfs(target_value)
+        return self if @value == target_value
+        return nil if self == nil
+
+        self.children.each do |child|
+            search_result = child.dfs(target_value)
+            return search_result if search_result != nil
+        end
+        nil
+    end
+
+
+
+    def bfs(target_value)
+        queue = [self]
+        until queue.empty?
+            current_node = queue.shift
+            return current_node if current_node.value == target_value
+            current_node.children.each { |child| queue << child }
+        end
+
+        nil
     end
 end

@@ -58,3 +58,22 @@ end
 
 
 # slow dance ###################################################
+def slow_dance(target, arr)
+    arr.each_with_index do |move, idx|
+        return idx if move == target
+    end
+end
+
+
+# fast dance ###################################################
+def tiles_hash(arr)
+    hash = Hash.new
+    arr.each_with_index do |direction, i|
+        hash[direction] = i
+    end
+    hash
+end
+
+def fast_dance(target, hash)
+    hash[target]
+end

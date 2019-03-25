@@ -1,0 +1,194 @@
+SQL
+Short for: Structured Query Language
+
+RELATIONAL DATABASE MANAGEMENT SYSTEM
+MySQL: A piece of software
+
+WHAT IS A DATABASE?
+-----
+Any collection of related information
+    • Phone book
+    • Shopping list
+    • To do list
+    • Your five best friends
+    • Facebook's user base
+
+Databases can be stored in different way
+        • On paper
+        • In your mind
+        • On a computer
+        • In a powerpoint
+        • The comments section of a website'
+
+-----------------------------
+
+DATABASE MANAGEMENT SYSTEM
+A special software program that helps you create and maintain a Databases
+
+• Makes it easy to manage large amounts of information
+• Handles security
+• Backups
+• Importing / exporting data
+
+-----------------------------
+
+C.R.U.D.
+Create / Read / Update / Delete
+
+-----------------------------
+
+TWO TYPES OF DATABASES 
+Relational Databases (SQL)
+• These are like excel spreadsheets
+• Rows and colums
+• A unique key identifies each Rows
+
+
+Non Relational Databases 
+
+
+
+PRIMARY KEY
+Unique identifier in the table row -- it's the one row' that is TOTALLY UNIQUE, that you can identify the table with
+
+FOREIGN KEY
+This stores a link to this item in another relational database table 
+
+COMPOSITE KEY
+When a table can be identified by TWO KEYS PUT TOGETHER, instead of one key
+
+
+
+
+
+
+----------------
+----------------
+
+
+SQL
+A "programming language" that is used for interacting with RDBMs (Relational Database Management Systems)
+
+SQL is 4 things:
+1. Data Query Language
+        - Used to ask ("query") the database for information
+2. Data Definition Language
+        - Used to define database schemas
+3. Data Control Language
+        - Used for controlling access to the data in the database
+        - User and permissions Management
+        - Define a bunch of different users in a table, and then control which tables they're allowed to ' access inside of the table'
+4. Data Manipulation' Language
+        - Lets you manipulate the tables
+
+
+
+NORMALIZATION
+Never store duplicate information...just store a reference to it.
+
+
+---------------------
+
+
+
+IMPERATIVE PROGRAMMING
+Step-by-step instructions, laid out one by one
+
+DECLARATIVE PROGRAMMING
+Describes what you want to ACHIEVE, without going into too much detail about how you're going to achieve it.'
+
+
+
+-----------------------
+
+
+DATA TYPES:
+• BOOLEAN
+• INT
+• FLOAT (stores "floating point" numbers)
+• VARCHAR(255) <- A string with a length limit of 255 characters
+• TEXT <- A string of unlimited TEXT
+• DATE
+• DATETIME
+• TIME
+• BLOB (like an image)
+
+
+
+----
+
+
+
+Sample SQL Query:
+
+SELECT
+    name, age, has_cats
+FROM
+    tenants
+WHERE
+    (has_cats = true AND age > 50)
+
+
+----
+
+
+SELECT
+    team_member.first_name,
+    team_member.last_name,
+    manager.first_name,
+    manager.last_name
+FROM
+    employee AS team_member
+JOIN
+
+
+
+
+
+SELECT
+        table_two.column_one,
+        table_two.column_two,
+        table_two.column_three
+FROM
+        table_one
+LEFT OUTER JOIN
+        table_two ON table_one.column_one == table_two.column_x
+WHERE
+        (table_one.column_three > table_two.column_y
+        AND another_condition IS NULL)
+GROUP BY
+        table_two.column_four
+ORDER BY
+        table_two.column_four
+
+
+
+
+
+
+
+SELECT
+        bands.*
+FROM
+        bands
+JOIN (
+    SELECT
+        albums.*
+    FROM
+        albums
+    WHERE
+        album.type = "POP"
+    GROUP BY
+        album.band_id
+    HAVING
+        COUNT(*) > 3
+    ) AS pop_group_albums ON bands.id = pop_group_albums.band_id
+WHERE
+        band.leader_id IN (
+            SELECT
+                musicians.id
+            FROM
+                musicians
+            WHERE
+                musicians.birth_yr > 1940
+        )

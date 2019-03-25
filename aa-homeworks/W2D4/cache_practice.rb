@@ -54,16 +54,7 @@ def organize_2(hash, arr)
 end
 
 
+# Initialize your array to have x number of spaces -- the buckets are just SENTINAL NODES that you will add to and subtract from
 
-# class LinkedList
-#     attr_accessor :head
 
-#     def initialize
-#         @head = nil
-#     end
 
-#     def append(node)
-
-#     end
-
-# end

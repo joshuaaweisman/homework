@@ -1,0 +1,52 @@
+<style>
+
+    h1 {
+        display: block;
+        background: yellow;
+    }
+
+
+    p {
+        display: block;
+        background: orange;
+    }
+
+
+    img {
+        display: block;
+        width: 300px;
+        height: 400px;
+        background: red;
+        float: left; /* This lets the text on the rest of the page move AROUND the picture, instead of just going above and below it. */
+    }
+
+
+    article {
+        margin: 50px;
+        background: blue;
+        border: 10px solid red;
+
+        clear: left; /* This stops the float */
+    }
+
+
+    .pseudo-stop-float:after {
+        content: "STOP THE FLOAT";
+        background: green;
+    }
+
+
+    .group:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+</style>
+
+<body>
+    <article class="group">
+        <h1>Cats</h1>
+        <img src="cat.jpg" alt="Cat">
+    </article>
+</body>
